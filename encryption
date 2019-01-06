@@ -1,0 +1,147 @@
+#!/usr/bin/python3
+#!--- coded script by ANtqAmE (ALi Qasseim) ---!#
+#! I LOVE PYTHON
+
+#------------------#
+#Import Libraries
+import binascii
+import base64
+import optparse
+import os
+import socket
+import time
+#------------------#
+#colors
+wi = "\033[1;37m" 
+rd = "\033[1;31m" 
+gr = "\033[1;32m" 
+yl = "\033[1;33m" 
+pu = "\033[1;35m"
+#------------------# 
+os.system("clear")
+def connect():                                       
+   try:                                           
+      host = socket.gethostbyname("www.google.com")  
+      create_connect = socket.create_connection((host, 80), 2)   
+      return True                                 
+   except:                                        
+         pass                                     
+   return False 
+connect()
+#------------------#
+parser = optparse.OptionParser(rd+"""
+                        
+███████╗███╗   ██╗ ██████╗██████╗ ██╗   ██╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+██╔════╝████╗  ██║██╔════╝██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+█████╗  ██╔██╗ ██║██║     ██████╔╝ ╚████╔╝ ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+██╔══╝  ██║╚██╗██║██║     ██╔══██╗  ╚██╔╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+███████╗██║ ╚████║╚██████╗██║  ██║   ██║   ██║        ██║   ██║╚██████╔╝██║ ╚████║
+╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                        ________________________________________________________________________________
+                       |          .::        ::.            	       .::             ::.              |
+                       +===================================+============================================+
+                       |              [+] this script coded by ANtqAmE (ALI QASSEIM) [+]                |
+                       |              Facebook: https://www.facebook.com/ANtqAmE                        |
+                       |              Youtube : https://www.youtube.com/channel/UC1QRVK_K4jWPDXm798orw-g|
+                       |===================================+============================================|
+"""+wi+"""
+Usage :  encryption [OPTIONS]  [THE WORD]
+                       ________________________________________________________________________________
+                      |          .:: OPTIONS ::.            	       .:: Description ::.             |
+                      +===================================+============================================+
+                      |  -e  , --encryption               |  input word to encryption       	       |
+                      |  -d  , --decryption               |  input encryption to decryption 	       |
+                      |===================================+============================================|
+                      |                            .:: EXAMPLES ::.                                    |
+                      |                         encryption  -e ANtqAmE                                 |
+                      |              encryption -d cHJvZ3JhbW1pbmdfdGhpc19zY3JpcHRfYnlfQU50cUFtRQ==    |
+                      ==================================================================================
+""")
+
+
+
+parser.add_option("-e","--encryption",dest="encryption",type="string",help="plz input word to encryption")
+parser.add_option("-d","--decryption",dest="decryption",type="string",help="plz input encryption to decryption")
+
+(options,args) = parser.parse_args()
+
+if options.encryption != None:
+    try:
+        os.system("clear")
+        print(pu+"""
+                                
+    ███████╗███╗   ██╗ ██████╗██████╗ ██╗   ██╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+    ██╔════╝████╗  ██║██╔════╝██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+    █████╗  ██╔██╗ ██║██║     ██████╔╝ ╚████╔╝ ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+    ██╔══╝  ██║╚██╗██║██║     ██╔══██╗  ╚██╔╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+    ███████╗██║ ╚████║╚██████╗██║  ██║   ██║   ██║        ██║   ██║╚██████╔╝██║ ╚████║
+    ╚══════╝╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+     ________________________________________________________________________________
+    |          .::        ::.            	       .::             ::.           |
+    +===================================+============================================+
+    |              [+] this script coded by ANtqAmE (ALI QASSEIM) [+]                |
+    |              Facebook: https://www.facebook.com/ANtqAmE                        |
+    |              Youtube : https://www.youtube.com/channel/UC1QRVK_K4jWPDXm798orw-g|
+    |===================================+============================================|
+
+        """)
+
+        encryption = str(options.encryption)
+        edate = encryption.encode("utf-8")
+        asciidate = binascii.b2a_base64(edate)
+        print(wi+"Encrypting... ")
+        time.sleep(1.5)
+        print("1....\n")
+        time.sleep(1.5)
+        print("2.....\n")
+        time.sleep(1.5)
+        print("3......\n")
+        print("\n\n")
+        time.sleep(3)
+        print(" [*] Note : to take your encryption just delete ( b'' and back slash n   )")
+        print(wi+"""this's your encryption : """+str(asciidate))
+    except KeyboardInterrupt as msg:
+        print(msg)
+        exit(0)
+elif options.decryption != None:
+    try:
+        os.system("clear")
+        print(yl+"""
+        
+    ██████╗ ███████╗ ██████╗██████╗ ██╗   ██╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+    ██╔══██╗██╔════╝██╔════╝██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+    ██║  ██║█████╗  ██║     ██████╔╝ ╚████╔╝ ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+    ██║  ██║██╔══╝  ██║     ██╔══██╗  ╚██╔╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+    ██████╔╝███████╗╚██████╗██║  ██║   ██║   ██║        ██║   ██║╚██████╔╝██║ ╚████║
+    ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+     ________________________________________________________________________________
+    |          .::        ::.            	       .::             ::.              |
+    +===================================+============================================+
+    |              [+] this script coded by ANtqAmE (ALI QASSEIM) [+]                |
+    |              Facebook: https://www.facebook.com/ANtqAmE                        |
+    |              Youtube : https://www.youtube.com/channel/UC1QRVK_K4jWPDXm798orw-g|
+    |===================================+============================================|
+                                                                                
+
+        """)
+        decryption = str(options.decryption)
+        edate = decryption.encode("utf-8")
+        asciidate = binascii.a2b_base64(edate)
+        print(wi+"decrypting... ")
+        time.sleep(1.5)
+        print("1....\n")
+        time.sleep(1.5)
+        print("2.....\n")
+        time.sleep(1.5)
+        print("3......\n")
+        print("\n\n")
+        time.sleep(3)
+        print(" [*] Note : to take your decryption just delete ( b'' )")
+        print(wi+"""this's your decryption : """+str(asciidate))   
+    except KeyboardInterrupt as msg:
+        print(msg)
+        exit(0)
+
+else:
+    print(parser.usage)
+    exit()
